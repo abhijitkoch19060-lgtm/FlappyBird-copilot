@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flappy Bird — Ancient Pillars</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="app">
+    <!-- 16:9 container -->
+    <div class="game-wrapper">
+      <div class="game-aspect">
+        <canvas id="gameCanvas" width="1280" height="720"></canvas>
+
+        <!-- Overlay UI -->
+        <div id="overlay">
+          <!-- Home Menu -->
+          <div id="homeMenu" class="panel">
+            <h1 class="title">Flappy Bird</h1>
+            <div class="menu-buttons">
+              <button id="btnNewGame" class="btn primary">New Game</button>
+              <button id="btnSettings" class="btn">Settings</button>
+              <button id="btnQuit" class="btn danger">Quit</button>
+            </div>
+            <p class="hint">Left click or press Space to flap.</p>
+          </div>
+
+          <!-- Countdown -->
+          <div id="countdown" class="countdown hidden">3</div>
+
+          <!-- HUD -->
+          <div id="hud" class="hud hidden">
+            <div class="score">Score: <span id="scoreValue">0</span></div>
+          </div>
+
+          <!-- Game Over -->
+          <div id="gameOverPanel" class="panel hidden">
+            <h2>Game Over</h2>
+            <p>Your score: <span id="finalScore">0</span></p>
+            <button id="btnReset" class="btn primary">Reset</button>
+            <button id="btnBackToMenu" class="btn">Back to Menu</button>
+          </div>
+
+          <!-- Settings Modal -->
+          <div id="settingsModal" class="modal hidden">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3>Settings</h3>
+                <button id="btnCloseSettings" class="btn small">Close</button>
+              </div>
+              <div class="modal-body">
+                <div class="settings-group">
+                  <label for="birdColor"><strong>Bird color:</strong></label>
+                  <input type="color" id="birdColor" value="#2ecc71"/>
+                </div>
+                <div class="settings-group">
+                  <label for="eyeSize"><strong>Eye size:</strong></label>
+                  <input type="range" id="eyeSize" min="6" max="16" value="10"/>
+                </div>
+                <div class="settings-group">
+                  <label for="volume"><strong>Volume:</strong></label>
+                  <input type="range" id="volume" min="0" max="100" value="70"/>
+                </div>
+                <div class="settings-group checkbox">
+                  <label>
+                    <input type="checkbox" id="muteToggle"/>
+                    <strong>Mute</strong>
+                  </label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button id="btnSaveSettings" class="btn primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </div> <!-- overlay -->
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
